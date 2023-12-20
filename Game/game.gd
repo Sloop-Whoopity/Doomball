@@ -12,6 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 #This is a test from josh
+#this is a second git test from Elijah.
 
 
 
