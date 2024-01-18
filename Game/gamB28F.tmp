@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2ydg4lhttytf"]
+
+[ext_resource type="Script" path="res://Game/game.gd" id="1_0cae0"]
+[ext_resource type="PackedScene" uid="uid://gb6spe8hfhwo" path="res://Floor/floor.tscn" id="1_s7dog"]
+[ext_resource type="PackedScene" uid="uid://cth1ggx0o5w0h" path="res://Player/player.tscn" id="2_v8aft"]
+[ext_resource type="PackedScene" uid="uid://bip04es5rgmgg" path="res://Ball/ball.tscn" id="3_7f1yj"]
+[ext_resource type="PackedScene" uid="uid://uu77vw44phdj" path="res://Wall/wall.tscn" id="5_cqt5v"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_0cae0")
+
+[node name="Floor" parent="." instance=ExtResource("1_s7dog")]
+position = Vector2(15, 677)
+
+[node name="Player" parent="." instance=ExtResource("2_v8aft")]
+position = Vector2(221, 543)
+
+[node name="Ball" parent="." instance=ExtResource("3_7f1yj")]
+light_mask = 0
+position = Vector2(663, 526)
+
+[node name="Floorpoint" parent="Ball" index="2"]
+position = Vector2(-114, 84)
+
+[node name="Wall" parent="." instance=ExtResource("5_cqt5v")]
+position = Vector2(987, 415)
+metadata/_edit_group_ = true
+
+[connection signal="body_entered" from="Wall" to="Ball" method="_on_wall_body_entered"]
+
+[editable path="Player"]
+[editable path="Ball"]
+[editable path="Wall"]

@@ -2,6 +2,11 @@ extends Node
 
 signal strike  #signal to hit the ball when the hitbox has detected the ball
 signal player_hurt
+signal enemy_hurt
+signal straight_attack
+signal down_attack
+signal upward_attack
+
 
 
 # Called when the node enters the scene tree for the first time.

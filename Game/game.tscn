@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2ydg4lhttytf"]
+[gd_scene load_steps=8 format=3 uid="uid://c2ydg4lhttytf"]
 
 [ext_resource type="Script" path="res://Game/game.gd" id="1_0cae0"]
 [ext_resource type="PackedScene" uid="uid://gb6spe8hfhwo" path="res://Floor/floor.tscn" id="1_s7dog"]
-[ext_resource type="PackedScene" uid="uid://cth1ggx0o5w0h" path="res://Player/player.tscn" id="2_v8aft"]
 [ext_resource type="PackedScene" uid="uid://bip04es5rgmgg" path="res://Ball/ball.tscn" id="3_7f1yj"]
-[ext_resource type="PackedScene" uid="uid://uu77vw44phdj" path="res://Wall/wall.tscn" id="5_cqt5v"]
+[ext_resource type="PackedScene" uid="uid://uu77vw44phdj" path="res://Enemy/Enemy.tscn" id="5_cqt5v"]
+[ext_resource type="PackedScene" uid="uid://b78iptqpvjvlh" path="res://Floorpoint/floorpoint.tscn" id="6_28qhl"]
+[ext_resource type="PackedScene" uid="uid://cgt6m8sdg3epa" path="res://Player/Player.tscn" id="7_daqv1"]
+[ext_resource type="PackedScene" uid="uid://bdn3qqt58hq8b" path="res://TopPoint/top_point.tscn" id="7_hs44x"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0cae0")
@@ -12,19 +14,24 @@ script = ExtResource("1_0cae0")
 [node name="Floor" parent="." instance=ExtResource("1_s7dog")]
 position = Vector2(15, 677)
 
-[node name="Player" parent="." instance=ExtResource("2_v8aft")]
-position = Vector2(221, 543)
-
 [node name="Ball" parent="." instance=ExtResource("3_7f1yj")]
 light_mask = 0
-position = Vector2(655, 532)
+position = Vector2(605, 428)
 
-[node name="Wall" parent="." instance=ExtResource("5_cqt5v")]
-position = Vector2(987, 415)
+[node name="Enemy" parent="." instance=ExtResource("5_cqt5v")]
+position = Vector2(987, 411)
 metadata/_edit_group_ = true
 
-[connection signal="body_entered" from="Wall" to="Ball" method="_on_wall_body_entered"]
+[node name="Player" parent="." instance=ExtResource("7_daqv1")]
+position = Vector2(161, 427)
+metadata/_edit_group_ = true
 
-[editable path="Player"]
+[node name="Floorpoint" parent="." instance=ExtResource("6_28qhl")]
+position = Vector2(385, 575)
+
+[node name="TopPoint" parent="." instance=ExtResource("7_hs44x")]
+position = Vector2(566, 213)
+
 [editable path="Ball"]
-[editable path="Wall"]
+[editable path="Enemy"]
+[editable path="Player"]
